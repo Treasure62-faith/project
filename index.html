@@ -9,11 +9,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <style>
+        button[type="submit"] {
+        width: 50%;
+        padding: 1rem;
+        margin-left: 4rem;
+        margin-block: 3rem;
+        background: var(--primary);
+        background-color: orange;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background: #ff6600;
+        transform: translateY(-2px);
+    }
+
+    </style>
     <header>
         <div class="icon-box">
-        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://x.com/xtremly_cute08"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://web.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/jayfox2025/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         </div>
 
         <div class="info-box">
@@ -21,7 +43,7 @@
             <a href="#">IN</a>
                 <div class="dropdown-content">
                     <a href="#">Category</a>
-                    <a href="#">Freash Picks</a>
+                    <a href="#">Fresh Picks</a>
                     <a href="#">Top Quality</a>
                     <a href="#">Featured</a>
                     <a href="#">Popular Brands</a>
@@ -42,7 +64,7 @@
         </div>
 
         <div class="signin">
-            <a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Sign in</span></a>
+            <a href="./singin.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Sign in</span></a>
         </div>
     </div>
         </div>
@@ -51,25 +73,96 @@
     <nav>
         <div class="nav-bar">
             <div class="logo">
+                <h2>Cozy</h2>
+                <img src="image/logo.png" alt="logo">
                 <h2>Comfort</h2>
-                <img src="image/logo2.0.png" alt="logo">
-                <h2>Zone</h2>
             </div>
 
             <div class="nav-links">
+
+                <div class="links">
                 <a href="#">Home</a>
                 <a href="#">Shop</a>
                 <a href="#">Blog</a>
                 <a href="#">Page</a>
                 <a href="#">About</a>
+            </div>
 
     <div class="search-bar">
-        <input type="text" placeholder="Search products, brands and categories">
+        <input type="text" placeholder="Search">
         <button type="button">Search</button>
     </div>
 
-    <button type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    <a href="cart.html"><button type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
+</div>
 </nav>
+    
+    <div class="intro">
+        <div class="intro-content gen-layout">
+            <div class="intro-text">
+            <h4>Furnitures & Home Deco 2025 Limited Edition</h4>
+            <h2>Designed For Living, Crafted For Comfort</h2>
+            <h5>The art of enhancing the interior of a house or a room to make it more aesthetically pleasing and functional for the occupants</h5>
 
+            <form onsubmit="return handleSubmit()">
+                <!-- Existing form inputs remain same -->
+            
+                <button type="submit" onclick="handleClick()">Shop Special Edition</button>
+            </form>
+            </div>
+            <div class="intro-image">
+                <img src="./image/3D sofa 1-picaai.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="Category">
+        <div class="category-content gen-layout">
+            <div class="category-text">
+                <h2>Our Product Category</h2>
+                <h5>Find the perfect furniture for your home or office</h5>
+            </div>
+            <div class="category-image">
+                <div class="image1">
+                <img src="./image/Art deco-picaai.png" alt="">
+                <h4>Art Deco</h4>
+            </div>
+
+                <div class="image2">
+                <img src="./image/Mordern-picaai.png" alt="">
+                <h4>Mid-century Mordern</h4>
+            </div>
+
+                <div class="image3">
+                <img src="./image/Company sofa]-picaai.png" alt="">
+                <h4>Industrial</h4>
+            </div>
+
+                <div class="image4">
+                <img src="./image/Rustic-picaai.png" alt="">
+                <h4>Rustic</h4>
+            </div>
+
+                <div class="image5">
+                <img src="./image/Contemporary Chic.png" alt="">
+                <h4>Contemporary Chic</h4>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add this modified script
+function handleSubmit() {
+    // Add form validation logic here
+    return false; // Prevent default form submission
+}
+
+function handleClick() {
+    // Add any pre-redirect logic here
+    window.location.href = "shop.html";
+    return false; // Prevent default button behavior
+}
+    </script>
 </body>
 </html>

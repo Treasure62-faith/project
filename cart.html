@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <style>
+        .cart-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        body{
+            background-color: #ffaa33;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .quantity-controls button {
+            padding: 0.25rem 0.5rem;
+            margin: 0 0.25rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        <div id="cart-items"></div>
+        <div id="cart-total" style="margin-top: 2rem; font-size: 1.25rem;"></div>
+        <button onclick="checkout()" style="margin-top: 1rem; padding: 1rem 2rem;">
+            Proceed to Checkout
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadCart);
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cart-items');
+            let total = 0;
+
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div>${item.name}</div>
+                    <div>$${item.price}</div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity('${item.id}', -1)">-</button>
+                        ${item.quantity}
+                        <button onclick="updateQuantity('${item.id}', 1)">+</button>
+                    </div>
+                    <div>$${(item.price * item.quantity).toFixed(2)}</div>
+                </div>
+            `).join('');
+
+            total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            const item = cart.find(item => item.id === productId);
+            
+            if(item) {
+                item.quantity += change;
+                if(item.quantity < 1) item.quantity = 1;
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function checkout() {
+            // Add your checkout logic here
+            alert('Redirecting to secure checkout...');
+        }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize cart counter
+        updateCartCounter();
+        
+        // Add event listeners to all add-to-cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', addToCart);
+        });
+    });
+
+    function addToCart(event) {
+        const product = {
+            id: event.target.dataset.id,
+            name: event.target.dataset.name,
+            price: parseFloat(event.target.dataset.price),
+            image: event.target.dataset.image,
+            quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Check if item already exists in cart
+        const existingItem = cart.find(item => item.id === product.id);
+        
+        if(existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCounter();
+        showCartNotification(product.name);
+    }
+
+    function updateCartCounter() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    }
+
+    function showCartNotification(productName) {
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        notification.innerHTML = `
+            <span>✅ Added ${productName} to cart</span>
+            <a href="cart.html">View Cart</a>
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => notification.remove(), 3000);
+    }
+    </script>
+</body>
+</html>
