@@ -5,42 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comfort Zone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Removed duplicate Font Awesome link -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <style>
         button[type="submit"] {
-        width: 50%;
-        padding: 1rem;
-        margin-left: 4rem;
-        margin-block: 3rem;
-        background: var(--primary);
-        background-color: orange;
-        color: white;
-        border: none;
-        border-radius: 30px;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+            width: 50%;
+            padding: 1rem;
+            margin-left: 4rem;
+            margin-block: 3rem;
+            background: var(--primary);
+            background-color: orange;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-    button[type="submit"]:hover {
-        background: #ff6600;
-        transform: translateY(-2px);
-    }
-
+        button[type="submit"]:hover {
+            background: #ff6600;
+            transform: translateY(-2px);
+        }
     </style>
     <header>
         <div class="icon-box">
-        <a href="https://x.com/xtremly_cute08"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a href="https://web.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="https://www.instagram.com/jayfox2025/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://x.com/xtremly_cute08"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://web.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/jayfox2025/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         </div>
 
         <div class="info-box">
             <div class="dropdown">
-            <a href="#">IN</a>
+                <a href="#">IN</a>
                 <div class="dropdown-content">
                     <a href="#">Category</a>
                     <a href="#">Fresh Picks</a>
@@ -55,18 +53,17 @@
             </div>
 
             <div class="dropdown2">
-            <a href="#">English</a>
-            <div class="dropdown-content2">
-            <a href="#">Japanes</a>
-            <a href="#">French</a>
-            <a href="#">Spanish</a>
-        </div>
-        </div>
+                <a href="#">English</a>
+                <div class="dropdown-content2">
+                    <a href="#">Japanese</a>
+                    <a href="#">French</a>
+                    <a href="#">Spanish</a>
+                </div>
+            </div>
 
-        <div class="signin">
-            <a href="./singin.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Sign in</span></a>
-        </div>
-    </div>
+            <div class="signin">
+                <a href="./signin.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Sign in</span></a>
+            </div>
         </div>
     </header>
 
@@ -79,36 +76,34 @@
             </div>
 
             <div class="nav-links">
-
                 <div class="links">
-                <a href="#">Home</a>
-                <a href="#">Shop</a>
-                <a href="#">Blog</a>
-                <a href="#">Page</a>
-                <a href="#">About</a>
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Page</a>
+                    <a href="#">About</a>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <button type="button">Search</button>
+                </div>
+
+                <a href="cart.html"><button type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
             </div>
-
-    <div class="search-bar">
-        <input type="text" placeholder="Search">
-        <button type="button">Search</button>
-    </div>
-
-    <a href="cart.html"><button type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a>
-</div>
-</nav>
+        </div>
+    </nav>
     
     <div class="intro">
         <div class="intro-content gen-layout">
             <div class="intro-text">
-            <h4>Furnitures & Home Deco 2025 Limited Edition</h4>
-            <h2>Designed For Living, Crafted For Comfort</h2>
-            <h5>The art of enhancing the interior of a house or a room to make it more aesthetically pleasing and functional for the occupants</h5>
+                <h4>Furnitures & Home Deco 2025 Limited Edition</h4>
+                <h2>Designed For Living, Crafted For Comfort</h2>
+                <h5>The art of enhancing the interior of a house or a room to make it more aesthetically pleasing and functional for the occupants</h5>
 
-            <form onsubmit="return handleSubmit()">
-                <!-- Existing form inputs remain same -->
-            
-                <button type="submit" onclick="handleClick()">Shop Special Edition</button>
-            </form>
+                <form onsubmit="return handleSubmit()">
+                    <button type="submit" onclick="handleClick()">Shop Special Edition</button>
+                </form>
             </div>
             <div class="intro-image">
                 <img src="./image/3D sofa 1-picaai.png" alt="">
@@ -124,45 +119,165 @@
             </div>
             <div class="category-image">
                 <div class="image1">
-                <img src="./image/Art deco-picaai.png" alt="">
-                <h4>Art Deco</h4>
-            </div>
+                    <img src="./image/Art deco-picaai.png" alt="">
+                    <h4>Art Deco</h4>
+                </div>
 
                 <div class="image2">
-                <img src="./image/Mordern-picaai.png" alt="">
-                <h4>Mid-century Mordern</h4>
-            </div>
+                    <img src="./image/Mordern-picaai.png" alt="">
+                    <h4>Mid-century Modern</h4>
+                </div>
 
                 <div class="image3">
-                <img src="./image/Company sofa]-picaai.png" alt="">
-                <h4>Industrial</h4>
-            </div>
+                    <img src="./image/Company sofa]-picaai.png" alt="">
+                    <h4>Industrial</h4>
+                </div>
 
                 <div class="image4">
-                <img src="./image/Rustic-picaai.png" alt="">
-                <h4>Rustic</h4>
-            </div>
+                    <img src="./image/Rustic-picaai.png" alt="">
+                    <h4>Rustic</h4>
+                </div>
 
                 <div class="image5">
-                <img src="./image/Contemporary Chic.png" alt="">
-                <h4>Contemporary Chic</h4>
-            </div>
+                    <img src="./image/Contemporary Chic.png" alt="">
+                    <h4>Contemporary Chic</h4>
+                </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Add this modified script
-function handleSubmit() {
-    // Add form validation logic here
-    return false; // Prevent default form submission
-}
+    <div class="fresh-picks">
+        <div class="freshpicks-content gen-layout">
+            <div class="freshpicks-text">
+                <h2>Fresh Picks For You</h2>
+                <h5>Our latest and greatest furniture</h5>
 
-function handleClick() {
-    // Add any pre-redirect logic here
-    window.location.href = "shop.html";
-    return false; // Prevent default button behavior
-}
+                <div class="picklinks">
+                    <a href="#">SHOP ALL</a>
+                    <a href="#">Center Table</a>
+                    <a href="#">Foam Sofa</a>
+                    <a href="#">Slick</a>
+                </div>
+            </div>
+
+            <div class="fresh-images">
+                <div class="fresh-contain">
+                    <div class="fresh-image1"></div>
+                    <div class="fresh-text">
+                        <button class="add-to-cart-btn" onclick="addToCart('1', 'Center Table', 2000, './image/center-table.png')">Add to Cart</button>
+                    </div>
+                    <div class="fresh-price">
+                        <h4>$ 2000</h4>
+                    </div>
+                </div>
+
+                <div class="fresh-contain">
+                    <div class="fresh-image2"></div>
+                    <div class="fresh-text">
+                        <button class="add-to-cart-btn" onclick="addToCart('2', 'Foam Sofa', 4500, './image/foam-sofa.png')">Add to Cart</button>
+                    </div>
+                    <div class="fresh-price">
+                        <h4>$ 4500</h4>
+                    </div>
+                </div>
+
+                <div class="fresh-contain">
+                    <div class="fresh-image3"></div>
+                    <div class="fresh-text">
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')">Add to Cart</button>
+                    </div>
+                    <div class="fresh-price">
+                        <h4>$ 6000</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <script>
+        function addToCart(id, name, price, image) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart!');
+        }
+
+        function handleSubmit() {
+            // Add form validation logic here
+            return false; // Prevent default form submission
+        }
+
+        function handleClick() {
+            // Add any pre-redirect logic here
+            window.location.href = "shop.html";
+            return false; // Prevent default button behavior
+        }
+
+        // Cart initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load existing cart or create empty array
+            if (!localStorage.getItem('cart')) {
+                localStorage.setItem('cart', JSON.stringify([]));
+            }
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cart = JSON.parse(localStorage.getItem('cart'));
+                
+                const product = {
+                    id: this.dataset.productId,
+                    name: this.dataset.productName,
+                    price: parseFloat(this.dataset.productPrice),
+                    image: this.dataset.productImage,
+                    quantity: 1
+                };
+
+                // Check if product already exists in cart
+                const existingProduct = cart.find(item => item.id === product.id);
+                
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push(product);
+                }
+
+                // Update localStorage and UI
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCounter();
+                showCartNotification(product.name);
+            });
+        });
+
+        // Update cart counter in header
+        function updateCartCounter() {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-badge').forEach(badge => {
+                badge.textContent = totalItems;
+            });
+        }
+
+        // Show temporary notification
+        function showCartNotification(productName) {
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification';
+            notification.innerHTML = `
+                <span>Added ${productName} to cart!</span>
+                <a href="cart.html">View Cart →</a>
+            `;
+            
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
     </script>
 </body>
 </html>

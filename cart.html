@@ -3,138 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Shopping Cart</title>
+    <title>Shopping Cart - Cozy Comfort</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        .cart-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
-        body{
-            background-color: #ffaa33;
+        .checkout-btn, .clear-btn {
+            padding: 10px 80px;
+            margin-block: 2rem;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover, .clear-btn:hover {
+            background-color: #ff6600;
         }
 
         .cart-item {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .quantity-controls button {
-            padding: 0.25rem 0.5rem;
-            margin: 0 0.25rem;
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .item-info {
+            flex-grow: 1;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-control button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: #ddd;
+            border: none;
             cursor: pointer;
+        }
+
+        .quantity-control span {
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .item-total {
+            margin-left: 20px;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: red;
         }
     </style>
 </head>
 <body>
-    <div class="cart-container">
+    <!-- Reuse header/nav from index.html -->
+    
+    <main class="cart-container gen-layout">
+        <div class="cart-actions">
+            <button onclick="checkout()" class="checkout-btn">Proceed to Checkout</button>
+            <button onclick="clearCart()" class="clear-btn">Clear Cart</button>
+        </div>
         <h1>Your Shopping Cart</h1>
-        <div id="cart-items"></div>
-        <div id="cart-total" style="margin-top: 2rem; font-size: 1.25rem;"></div>
-        <button onclick="checkout()" style="margin-top: 1rem; padding: 1rem 2rem;">
-            Proceed to Checkout
-        </button>
-    </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+            <h3>Total: $<span id="cart-total">0</span></h3>
+        </div>
+    </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', loadCart);
+        // Cart Management System
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        function loadCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function renderCart() {
             const container = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
             let total = 0;
-
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <div>${item.name}</div>
-                    <div>$${item.price}</div>
-                    <div class="quantity-controls">
-                        <button onclick="updateQuantity('${item.id}', -1)">-</button>
-                        ${item.quantity}
-                        <button onclick="updateQuantity('${item.id}', 1)">+</button>
+            
+            container.innerHTML = cart.map((item, index) => {
+                total += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="item-info">
+                            <h3>${item.name}</h3>
+                            <p>$${item.price}</p>
+                        </div>
+                        <div class="quantity-control">
+                            <button onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                        </div>
+                        <p class="item-total">$${item.price * item.quantity}</p>
+                        <button onclick="removeItem(${index})" class="remove-btn">
+                            <i class="fa fa-trash"></i>
+                        </button>
                     </div>
-                    <div>$${(item.price * item.quantity).toFixed(2)}</div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
 
-            total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+            totalElement.textContent = total.toFixed(2);
+            updateCartCounter();
         }
 
-        function updateQuantity(productId, change) {
-            let cart = JSON.parse(localStorage.getItem('cart'));
-            const item = cart.find(item => item.id === productId);
-            
-            if(item) {
-                item.quantity += change;
-                if(item.quantity < 1) item.quantity = 1;
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            loadCart();
+        function updateQuantity(index, newQuantity) {
+            if(newQuantity < 1) return removeItem(index);
+            cart[index].quantity = newQuantity;
+            saveCart();
+            renderCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveCart();
+            renderCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            saveCart();
+            renderCart();
         }
 
         function checkout() {
-            // Add your checkout logic here
-            alert('Redirecting to secure checkout...');
+            if(cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            window.location.href = 'checkout.html';
         }
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Initialize cart counter
-        updateCartCounter();
-        
-        // Add event listeners to all add-to-cart buttons
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', addToCart);
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCounter();
+        }
+
+        function updateCartCounter() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-badge').forEach(badge => {
+                badge.textContent = totalItems;
+            });
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            updateCartCounter();
         });
-    });
-
-    function addToCart(event) {
-        const product = {
-            id: event.target.dataset.id,
-            name: event.target.dataset.name,
-            price: parseFloat(event.target.dataset.price),
-            image: event.target.dataset.image,
-            quantity: 1
-        };
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        // Check if item already exists in cart
-        const existingItem = cart.find(item => item.id === product.id);
-        
-        if(existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push(product);
-        }
-
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCounter();
-        showCartNotification(product.name);
-    }
-
-    function updateCartCounter() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        document.getElementById('cart-count').textContent = cart.reduce((total, item) => total + item.quantity, 0);
-    }
-
-    function showCartNotification(productName) {
-        const notification = document.createElement('div');
-        notification.className = 'cart-notification';
-        notification.innerHTML = `
-            <span>✅ Added ${productName} to cart</span>
-            <a href="cart.html">View Cart</a>
-        `;
-        document.body.appendChild(notification);
-        
-        setTimeout(() => notification.remove(), 3000);
-    }
     </script>
 </body>
 </html>
