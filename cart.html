@@ -26,6 +26,7 @@
 
         .checkout-btn:hover, .clear-btn:hover {
             background-color: #ff6600;
+            color: #000;
         }
 
         .cart-item {
@@ -73,6 +74,16 @@
             cursor: pointer;
             color: red;
         }
+
+        .clear-btn {
+            border: none;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+        }
+
+        .clear-btn > i {
+            background-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -81,7 +92,7 @@
     <main class="cart-container gen-layout">
         <div class="cart-actions">
             <button onclick="checkout()" class="checkout-btn">Proceed to Checkout</button>
-            <button onclick="clearCart()" class="clear-btn">Clear Cart</button>
+            <button onclick="clearCart()" class="clear-btn"><i class="fa fa-trash"></i></button>
         </div>
         <h1>Your Shopping Cart</h1>
         <div id="cart-items" class="cart-items"></div>

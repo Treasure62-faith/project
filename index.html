@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy Comfort</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cozy Comfort</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    </head>
 <body>
     <style>
         button[type="submit"] {
@@ -270,8 +272,10 @@
                 <h5>Our latest and greatest furniture</h5>
 
                 <div class="featuredlinks">
-                    <a href="product.html">New Arrivals |</a>
+                    <button class="nav-btn" id="prev-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                    <a href="#">New Arrivals |</a>
                     <a href="#">Best Sellers</a>
+                    <button class="nav-btn" id="next-btn"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                 </div>
             </div>
 
@@ -318,6 +322,7 @@
                         <h4>The Best Mordern Massage Chair For You</h4>
                         <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                     </div>
+                    
                     <div class="featured-price">
                         <h4>$ 6000</h4>
                         <div class="rating">
@@ -329,95 +334,290 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image4"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image5"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image6"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image7"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image8"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image9"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-contain">
+                    <div class="featured-image10"></div>
+                    <div class="featured-text">
+                        <h4>The Best Mordern Massage Chair For You</h4>
+                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="featured-price">
+                        <h4>$ 6000</h4>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        </div>
+                    </div>
+                </div>
+                
     </div>
 
+    <div class="brand">
+        <div class="brand-content gen-layout">
+            <div class="brand-text">
+                <h2>MOSTPOPULAR BRANDS</h2>
+                <h5>Our latest and greatest furniture</h5>
+            </div>
+
+            <div class="brand-images">
+                <div class="brand-contain">
+                    <div class="brand-image1"></div>
+                    <div class="brand-logo">
+                       <img src="./image/relikua logo.png" alt="">
+                    </div>
+                </div>
+
+                <div class="brand-contain">
+                    <div class="brand-image2"></div>
+                    <div class="brand-logo">
+                        <img src="./image/relikua logo.png" alt="">
+                     </div>
+                </div>
+
+                <div class="brand-contain">
+                    <div class="brand-image3"></div>
+                    <div class="brand-logo">
+                        <img src="./image/relikua logo.png" alt="">
+                     </div>
+                </div>
+            </div>
+           </div> 
+        </div>
+
+
+
     <script>
-        function addToCart(id, name, price, image) {
+cart.push(product);
+saveCart();
+renderCart();
+         function addToCart(id, name, price, image) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItem = cart.find(item => item.id === id);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ id, name, price, image, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Product added to cart!');
+    }
+
+    function handleSubmit() {
+        // Add form validation logic here
+        return false; // Prevent default form submission
+    }
+
+    function handleClick() {
+        // Add any pre-redirect logic here
+        window.location.href = "product.html";
+        return false; // Prevent default button behavior
+    }
+
+    // Cart initialization
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load existing cart or create empty array
+        if (!localStorage.getItem('cart')) {
+            localStorage.setItem('cart', JSON.stringify([]));
+        }
+    });
+
+    // Add to cart functionality
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingItem = cart.find(item => item.id === id);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ id, name, price, image, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert('Product added to cart!');
-        }
-
-        function handleSubmit() {
-            // Add form validation logic here
-            return false; // Prevent default form submission
-        }
-
-        function handleClick() {
-            // Add any pre-redirect logic here
-            window.location.href = "product.html";
-            return false; // Prevent default button behavior
-        }
-
-        // Cart initialization
-        document.addEventListener('DOMContentLoaded', () => {
-            // Load existing cart or create empty array
-            if (!localStorage.getItem('cart')) {
-                localStorage.setItem('cart', JSON.stringify([]));
-            }
-        });
-
-        // Add to cart functionality
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                
-                const product = {
-                    id: this.dataset.productId,
-                    name: this.dataset.productName,
-                    price: parseFloat(this.dataset.productPrice),
-                    image: this.dataset.productImage,
-                    quantity: 1
-                };
-
-                // Check if product already exists in cart
-                const existingProduct = cart.find(item => item.id === product.id);
-                
-                if (existingProduct) {
-                    existingProduct.quantity += 1;
-                } else {
-                    cart.push(product);
-                }
-
-                // Update localStorage and UI
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartCounter();
-                showCartNotification(product.name);
-            });
-        });
-
-        // Update cart counter in header
-        function updateCartCounter() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.querySelectorAll('.cart-badge').forEach(badge => {
-                badge.textContent = totalItems;
-            });
-        }
-
-        // Show temporary notification
-        function showCartNotification(productName) {
-            const notification = document.createElement('div');
-            notification.className = 'cart-notification';
-            notification.innerHTML = `
-                <span>Added ${productName} to cart!</span>
-                <a href="cart.html">View Cart →</a>
-            `;
             
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 3000);
-        }
+            const product = {
+                id: this.dataset.productId,
+                name: this.dataset.productName,
+                price: parseFloat(this.dataset.productPrice),
+                image: this.dataset.productImage,
+                quantity: 1
+            };
 
-        // Initial load
-        document.addEventListener('DOMContentLoaded', updateCartCounter);
+            // Check if product already exists in cart
+            const existingProduct = cart.find(item => item.id === product.id);
+            
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            // Update localStorage and UI
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCounter();
+            showCartNotification(product.name);
+        });
+    });
+
+    // Update cart counter in header
+    function updateCartCounter() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.querySelectorAll('.cart-badge').forEach(badge => {
+            badge.textContent = totalItems;
+        });
+    }
+
+    // Show temporary notification
+    function showCartNotification(productName) {
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        notification.innerHTML = `
+            <span>Added ${productName} to cart!</span>
+            <a href="cart.html">View Cart →</a>
+        `;
+        
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
+    }
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', updateCartCounter);
+
+    document.getElementById('prev-btn').addEventListener('click', function() {
+        document.querySelector('.featured-images').scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        });
+    });
+
+    document.getElementById('next-btn').addEventListener('click', function() {
+        document.querySelector('.featured-images').scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
+    });
+
+    $(document).ready(function() {
+            $('.intro').ripples({
+                resolution: 1000,
+                dropRadius: 10, // px
+                perturbance:4,
+                interactive: true,
+                crossOrigin: '',
+                imageUrl: null // Use the background image of the element
+            });
+        });
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.display = 'none';
+            }, 100); // 10 seconds delay
+        });
     </script>
 </body>
 </html>

@@ -12,7 +12,7 @@ body{
 }
 
 .gen-layout{
-    max-width: 1200px;
+    max-width: 1220px;
     margin: auto;
 }
 
@@ -49,6 +49,7 @@ header{
     justify-content: center;
     align-items: center;
 }
+
 .icon-box > a{
     /* border: 2px solid #000000; */
     color: #000;
@@ -327,6 +328,8 @@ button {
     padding-bottom: 3rem;
     height: 90vh;
     background: linear-gradient(340deg,#c1833b 40%,rgb(138, 80, 41) 100%);
+    position: relative;
+    overflow: hidden;
 }
 
 .intro-content {
@@ -717,7 +720,7 @@ button {
     /* border: 2px solid #ff0000; */
     width: 23rem;
     height: 70vh;
-    background: linear-gradient(45deg, rgba(0, 255, 234, 0.635), rgba(74, 109, 151, 0.9)),
+    background: linear-gradient(45deg, rgba(0, 255, 234, 0.199), rgba(74, 109, 151, 0.126)),
     url('./image/Foam sofa.jpeg') center/cover;
     display: flex;
     align-items: flex-end;
@@ -784,6 +787,7 @@ button {
     background-color: #f97316;
     color: white;
     border: none;
+    opacity: .7;
     border-radius: 35%;
     border-top-left-radius: 50rem;
     border-bottom-left-radius: 50rem;
@@ -799,6 +803,10 @@ button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.fresh-text > button:hover{
+    opacity: 1;
+}
+
 .fresh-text > button > i {
     font-size: 30px;
     text-decoration: none;
@@ -810,7 +818,7 @@ button {
     /* border: 2px solid #ff0000; */
     width: 23rem;
     height: 70vh;
-    background: linear-gradient(45deg, rgba(255, 106, 0, 0.614), rgba(74, 109, 151, 0.9)),
+    background: linear-gradient(45deg, rgba(255, 106, 0, 0.304), rgba(74, 109, 151, 0.527)),
     url('./image/Center\ table.jpeg') center/cover;
     display: flex;
     align-items: flex-end;
@@ -822,7 +830,7 @@ button {
     /* border: 2px solid #ff0000; */
     width: 23rem;
     height: 70vh;
-    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.217), rgba(74, 109, 151, 0.486)),
     url('./image/massage-chair-1-scaled.png') center/cover;
     display: flex;
     align-items: flex-end;
@@ -976,7 +984,7 @@ button {
 
 .classy-collct{
     border: 2px solid blue;
-    background: linear-gradient(45deg, rgba(0, 115, 255, 0.685), rgba(106, 0, 255, 0.37)),
+    background: linear-gradient(45deg, rgba(0, 115, 255, 0.491), rgba(106, 0, 255, 0.295)),
     url('./image/Dream\ sofa-picaai.png') center/cover;
     height: 80vh;
     margin-block: 2rem;
@@ -1014,13 +1022,22 @@ button {
 
 /* .fresh-picks{
     border: 2px solid #000000;
+} */
+
+.featured-content{
+    /* border: 2px solid #ff0000; */
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
-.freshpicks-content{
-    border: 2px solid #ff0000;
+.featured-contain:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.freshpicks-text{
+/* .freshpicks-text{
     border: 2px solid #00ff00;
 } */
 
@@ -1040,25 +1057,32 @@ button {
     font-weight: 580;
     font-family: "Montserrat", sans-serif;
     border: none;
-    padding-left: 25.1rem;
+    padding-left: 26rem;
     color: #000;
-    margin-block: 10px;
+    margin-block: 12px;
 }
 
-.featureds-text > .featuredlinks{
-    /* border: 2px solid #ffaa00; */
-    display: flex;
-    gap: 2rem;
-    font-size: 23px;
-    font-weight: 580;
-    font-family: "Montserrat", sans-serif;
+.nav-btn {
+    background-color: transparent;
     border: none;
-    padding-left: 27rem;
-    color: #000;
-    margin-block: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.featureds-text > .picklinks > a{
+.nav-btn:hover {
+    transform: scale(1.2);
+}
+
+.featuredlinks {
+    display: flex;
+    /* margin-left: -1rem; */
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.featureds-text > .featuredlinks > a{
     /* border: 2px solid #ffaa00; */
     text-decoration: none;
     gap: 5rem;
@@ -1071,19 +1095,32 @@ button {
     margin-block: 10px;
 }
 
-.featureds-text > .picklinks > a:active,
-.featureds-text > .picklinks > a:focus {
+.featureds-text > .featuredlinks > a:active,
+.featureds-text > .featuredlinks > a:focus {
     color: rgb(255, 136, 0);
 }
 
 .featured-images{
     /* border: 2px solid #000000; */
     display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    margin-block: 2rem;
     padding: rem;
     color: #000000;
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+.featured-images::-webkit-scrollbar {
+    display: none;
+}
+
+
+.featured-images {
+    scrollbar-width: none;
 }
 
 .featured-contain{
@@ -1095,7 +1132,7 @@ button {
     /* border: 2px solid #ff0000; */
     width: 23rem;
     height: 70vh;
-    background: linear-gradient(45deg, rgba(0, 255, 234, 0.635), rgba(74, 109, 151, 0.9)),
+    background: linear-gradient(45deg, rgba(255, 135, 243, 0.267), rgba(74, 109, 151, 0)),
     url('./image/Foam sofa.jpeg') center/cover;
     display: flex;
     align-items: flex-end;
@@ -1160,6 +1197,7 @@ button {
 
 .featured-text > button {
     background-color: #f97316;
+    opacity: .7;
     color: white;
     border: none;
     border-radius: 35%;
@@ -1175,6 +1213,10 @@ button {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.featured-text > button:hover{
+    opacity: 1;
 }
 
 .featured-text > button > i {
@@ -1227,3 +1269,203 @@ button {
     background: #ff6600;
     transform: translateY(-2px);
 }
+
+.featured-image4{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.featured-image5{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.featured-image6{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.featured-image7{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.featured-image8{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.featured-image9{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.featured-image10{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 70vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.brand-text{
+    /* border: 2px solid #aeff00; */
+    /* display: flex; */
+    height: 15vh;
+    gap: 6rem;
+}
+
+.brand-text > h2{
+    border: 2px solid #ffaa00;
+    font-size: 40px;
+    font-weight: 580;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    color: #000;
+    margin-top: 50px;
+}
+
+.brand-text > h5{
+    border: 2px solid #ffaa00;
+    font-size: 23px;
+    font-weight: 580;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    padding-left: 25.1rem;
+    color: #000;
+    margin-block: 12px;
+}
+
+.brand-images{
+    /* border: 2px solid #000000; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-block: 2rem;
+    padding: rem;
+    color: #000000;
+}
+
+.brand-contain{
+    /* border: 1px solid #bbbbbb; */
+    background-color: #d3d3d3;
+}
+
+.brand-image1{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 60vh;
+    background: linear-gradient(45deg, rgba(0, 255, 234, 0.635), rgba(74, 109, 151, 0.9)),
+    url('./image/Foam sofa.jpeg') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.brand-logo{
+    /* border: 2px solid #ff0000; */
+    background-color: white;
+}
+
+.brand-logo > img{
+    /* border: 2px solid #ff0000; */
+    width: 70px;
+    margin-left: 8.5rem;
+    margin-top: 2.5rem;
+}
+
+.brand-text > h4{
+    /* border: 2px solid #ff0000; */
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin-block: 1rem;
+    margin-left: 1rem;
+    height: 15vh;
+    width: 11rem;
+}
+
+.brand-price > h4{
+    /* border: 2px solid #ff0000; */
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    margin-left: 1rem;
+    height: 10vh;
+    width: 11rem;
+}
+
+.brand-image2{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 60vh;
+    background: linear-gradient(45deg, rgba(255, 106, 0, 0.614), rgba(74, 109, 151, 0.9)),
+    url('./image/Center\ table.jpeg') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.brand-image3{
+    /* border: 2px solid #ff0000; */
+    width: 23rem;
+    height: 60vh;
+    background: linear-gradient(45deg, rgba(106, 0, 255, 0.642), rgba(74, 109, 151, 0.9)),
+    url('./image/massage-chair-1-scaled.png') center/cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
