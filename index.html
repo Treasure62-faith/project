@@ -167,7 +167,7 @@
                     <div class="fresh-image1"></div>
                     <div class="fresh-text">
                         <h4>Mordern Foam Sofa</h4>
-                        <button class="add-to-cart-btn" onclick="addToCart('1', 'Center Table', 2000, './image/center-table.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button class="add-to-cart-btn" onclick="addToCart('1', 'Center Table', 2000, './image/Center table.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                     </div>
                     <div class="fresh-price">
                         <h4>$ 2000</h4>
@@ -266,7 +266,7 @@
     </div>
 
     <div class="featured">
-        <div class="featured-content gen-layout">
+        <di class="featured-content gen-layout">
             <div class="featureds-text">
                 <h2>Fresh Picks For You</h2>
                 <h5>Our latest and greatest furniture</h5>
@@ -494,13 +494,36 @@
             </div>
            </div> 
         </div>
+        
 
-
+        <div class="big-sale">
+            <div class="big-image1"></div>
+            <div class="big-text1">
+                <h1>BIG SALE</h1>
+                <h2>BIG SALE</h2>
+            </div>
+            <div class="big-image2"></div>
+            <div class="big-text2">
+                <h3>OVER 250 COMFY AND SLICK STYLES AVAILABLE</h3>
+            </div>
+        </div>
 
     <script>
-cart.push(product);
-saveCart();
-renderCart();
+        function addToCart(id, name, price, image) {
+    console.log('Adding product to cart:', { id, name, price, image }); // Debugging line
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ id, name, price, image, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Product added to cart!');
+}
          function addToCart(id, name, price, image) {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingItem = cart.find(item => item.id === id);

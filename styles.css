@@ -1020,9 +1020,9 @@ button {
     margin-top: 1rem;
 }
 
-/* .fresh-picks{
-    border: 2px solid #000000;
-} */
+.featured{
+    /* border: 2px solid #000000; */
+}
 
 .featured-content{
     /* border: 2px solid #ff0000; */
@@ -1469,3 +1469,9 @@ button {
     color: white;
 }
 
+.big-sale{
+    border: 2px solid rgb(255, 0, 0);
+    max-width: unset;
+    margin: unset;
+    margin-block: 2rem;
+}
