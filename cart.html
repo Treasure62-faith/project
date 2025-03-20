@@ -96,6 +96,10 @@
             margin-top: 1rem;
         }
 
+        a{
+            text-decoration: none;
+        }
+
         /* Style for cart buttons to match navigation buttons */
 .cart-header button,
 .quantity-controls button,
@@ -176,9 +180,11 @@
 <body>
     <div class="cart-container">
         <div class="cart-header">
-            <button onclick="proceedToCheckout()">
-                <i class="fa fa-shopping-cart"></i>
-            </button>
+            <a href="checkout.html">
+                <button>
+                    <i class="fa fa-shopping-cart"></i>
+                </button>
+            </a>
             <button onclick="clearCart()">
                 <i class="fa fa-trash"></i>
             </button>
