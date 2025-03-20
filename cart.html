@@ -3,118 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f9f9f9;
-            color: #333;
         }
-        header, footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
+        .cart-container {
+            max-width: 800px;
+            margin: 2rem auto;
             padding: 1rem;
-        }
-        main {
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
             background: white;
-            padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        input {
-            width: 100%;
-            padding: 0.5rem;
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
         }
-        button {
-            background-color: #4CAF50;
+        .cart-header button {
+            background-color: #ff8c00;
             color: white;
-            padding: 0.75rem 1.5rem;
             border: none;
+            padding: 0.75rem 1.5rem;
             border-radius: 4px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        button:hover {
-            background-color: #45a049;
+        .cart-header button:hover {
+            background-color: #ff7b00;
         }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .cart-item h4 {
+            margin: 0;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            background-color: #af7d4c;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 0.5rem;
+        }
+        .quantity-controls button:hover {
+            background-color: #ff6f00;
+        }
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .delete-button:hover {
+            background-color: #e59635;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Style for cart buttons to match navigation buttons */
+.cart-header button,
+.quantity-controls button,
+.delete-button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #ff0095; /* Match the color of your navigation buttons */
+}
+
+.cart-header button:hover,
+.quantity-controls button:hover,
+.delete-button:hover {
+    transform: scale(1.2);
+    color: #0077ff; /* Slightly darker green on hover */
+}
+
+/* Checkout button */
+.cart-header button {
+    background-color: orange; /* Orange background */
+    color: brown; /* Brown icon color */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1); /* Box shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-header button:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Delete button */
+.delete-button {
+    background-color: orange; /* Orange background */
+    color: red; /* Red icon color */
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delete-button:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Add and minus buttons */
+.quantity-controls button {
+    background-color: gray; /* Gray background */
+    color: orange; /* Orange icon color */
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
     </style>
 </head>
 <body>
-    <header>
-        <h1>Checkout</h1>
-    </header>
-    <main>
-        <section class="billing-details">
-            <h2>Billing Details</h2>
-            <form id="checkout-form">
-                <label for="full-name">Full Name:</label>
-                <input type="text" id="full-name" name="full-name" required>
+    <div class="cart-container">
+        <div class="cart-header">
+            <button onclick="proceedToCheckout()">
+                <i class="fa fa-shopping-cart"></i>
+            </button>
+            <button onclick="clearCart()">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <p class="cart-total" id="cart-total">Total: $0.00</p>
+    </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
-
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" required>
-
-                <label for="state">State:</label>
-                <input type="text" id="state" name="state" required>
-
-                <label for="zip">Zip Code:</label>
-                <input type="text" id="zip" name="zip" required>
-
-                <button type="submit">Place Order</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Your Company Name</p>
-    </footer>
-
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    
     <script>
-        // Initialize EmailJS
-        emailjs.init('YOUR_EMAILJS_USER_ID'); // Replace with your EmailJS user ID
+        // Retrieve cart data from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
 
-        // Handle form submission
-        document.getElementById('checkout-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        // Function to update the cart display
+        function updateCart() {
+            cartItemsContainer.innerHTML = ''; // Clear the cart display
+            let total = 0;
 
-            // Get form data
-            const fullName = document.getElementById('full-name').value;
-            const email = document.getElementById('email').value;
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                cartTotalElement.textContent = 'Total: $0.00';
+                return;
+            }
 
-            // Prepare email parameters
-            const emailParams = {
-                to_email: email,
-                to_name: fullName,
-                message: `Dear ${fullName}, your order has been successfully placed! Thank you for shopping with us.`,
-            };
+            cart.forEach((item, index) => {
+                if (!item.name || !item.price || !item.image) {
+    console.warn('Skipping invalid cart item:', item);
+    return;
+}
 
-            // Send email using EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailParams)
-                .then(() => {
-                    alert('Order placed successfully! A confirmation email has been sent.');
-                })
-                .catch((error) => {
-                    console.error('Error sending email:', error);
-                    alert('Failed to send confirmation email. Please try again.');
-                });
-        });
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h4>${item.name}</h4>
+                    <p>Price: $${item.price}</p>
+                    <div class="quantity-controls">
+                        <button onclick="decreaseQuantity(${index})">-</button>
+                        <p>${item.quantity}</p>
+                        <button onclick="increaseQuantity(${index})">+</button>
+                    </div>
+                    <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+                    <button class="delete-button" onclick="deleteItem(${index})">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += item.price * item.quantity;
+            });
+
+            cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Function to increase the quantity of a product
+        function increaseQuantity(index) {
+            cart[index].quantity += 1;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Function to decrease the quantity of a product
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+            } else {
+                deleteItem(index); // Remove the item if quantity is 0
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Function to delete a specific item from the cart
+        function deleteItem(index) {
+            cart.splice(index, 1); // Remove the item from the cart
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        // Function to clear the cart
+        function clearCart() {
+            if (confirm('Are you sure you want to delete all items from the cart?')) {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+
+        // Function to proceed to checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add some products before proceeding to checkout.');
+                return;
+            }
+            alert('Proceeding to checkout...');
+            // Redirect to checkout page or handle checkout logic
+        }
+
+        // Initialize the cart display
+        updateCart();
     </script>
+    <!-- Add Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
