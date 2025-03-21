@@ -175,6 +175,25 @@
     transform: scale(1.1); /* Slight zoom on hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
+
+.cart-header button {
+    background-color: orange; /* Orange background */
+    color: brown; /* Brown icon color */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1); /* Box shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-header button:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
     </style>
 </head>
 <body>
@@ -185,6 +204,14 @@
                     <i class="fa fa-shopping-cart"></i>
                 </button>
             </a>
+
+    <!-- Back to Shop button -->
+    <a href="index.html">
+        <button>
+            <i class="fa fa-home"></i>
+        </button>
+    </a>
+
             <button onclick="clearCart()">
                 <i class="fa fa-trash"></i>
             </button>
@@ -195,7 +222,6 @@
         </div>
         <p class="cart-total" id="cart-total">Total: $0.00</p>
     </div>
-
     
     <script>
         // Retrieve cart data from localStorage

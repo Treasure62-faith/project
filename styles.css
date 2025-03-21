@@ -831,7 +831,7 @@ button {
     width: 23rem;
     height: 70vh;
     background: linear-gradient(45deg, rgba(106, 0, 255, 0.217), rgba(74, 109, 151, 0.486)),
-    url('./image/massage-chair-1-scaled.png') center/cover;
+    url('./image/Sea\ view.jpeg') center/cover;
     display: flex;
     align-items: flex-end;
     padding: 2rem;
@@ -1469,9 +1469,67 @@ button {
     color: white;
 }
 
-.big-sale{
-    border: 2px solid rgb(255, 0, 0);
-    max-width: unset;
-    margin: unset;
-    margin-block: 2rem;
+.big-sale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+    padding: 2rem;
+    margin: 2rem 0;
+    color: #fff;
+    text-align: center;
+}
+
+.big-sale .big-image1,
+.big-sale .big-image2 {
+    flex: 1;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.big-sale .big-image1 {
+    background-image: url('./image/Black\ heart.jpeg'); /* Replace with your image path */
+    margin-right: 1rem;
+}
+
+.big-sale .big-image2 {
+    background-image: url('./image/Sea\ view.jpeg'); /* Replace with your image path */
+    margin-left: 1rem;
+}
+
+.big-sale .big-text1,
+.big-sale .big-text2 {
+    flex: 2;
+    padding: 1rem;
+}
+
+.big-sale .big-text1 h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    text-shadow: none; /* Remove the shadow for a cleaner look */
+    color: transparent; /* Make the inside of the text transparent */
+    -webkit-text-stroke: 2px #fff; /* White border around the text */
+    text-align: center;
+}
+
+.big-sale .big-text1 h1,
+.big-sale .big-text1 h2 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    border: none;
+    margin: 0.5rem 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.big-sale .big-text2 h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: none; /* Remove the shadow for a cleaner look */
+    color: transparent; /* Make the inside of the text transparent */
+    -webkit-text-stroke: 2px #fff; /* White border around the text */
+    margin-top: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }

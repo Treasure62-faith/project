@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+    .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.featured-contain {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+}
+
+.featured-image10 {
+    height: 150px; /* Adjust height as needed */
+    background-color: #f4f4f4; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+}
+
+.featured-image10, .featured-image2 {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.featured-text h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.featured-price h4 {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.rating {
+    margin-top: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+nav {
+        display: flex; /* Use Flexbox for alignment */
+        justify-content: space-between; /* Space between the h1 and buttons */
+        align-items: center; /* Vertically align items */
+        padding: 10px 20px; /* Add some padding */
+    }
+
+    .navigation-buttons {
+        display: flex; /* Align buttons horizontally */
+        justify-content: space-around;
+        align-items: center;
+        gap: 30rem; /* Add gap between buttons */
+    }
+
+    .navigation-buttons button {
+        background-color: #007bff; /* Default background color */
+        color: #fff; /* Text color */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Add padding for size */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Font size */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+
+    .navigation-buttons button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+    </style>
+    <div class="product-container">
+        <nav>
+        <h1>Our Featured Products</h1>
+        <div class="navigation-buttons" style="text-align: center; margin: 20px 0;">
+            <button onclick="location.href='cart.html'"><i class="fa fa-shopping-cart"></i></button>
+            <button onclick="location.href='index.html'"><i class="fa fa-home"></i></button>
+        </div>
+    </nav>
+        <div class="product-grid">
+            <!-- Dynamically generate 50 unique products -->
+            <script>
+                // Array of products with unique details
+                const products = [
+                    { id: 1, name: "Hercule Arm Chair", price: 4500, image: "./images/Hercule.webp"},
+                    { id: 2, name: "Corsica Single Seater Sofa", price: 4600, image: "./images/Corsica single.webp" },
+                    { id: 3, name: "Imperfectio Sofa", price: 4700, image: "./images/Imperfectio Sofa.jpg" },
+                    { id: 4, name: "Ambience-arabe", price: 4800, image: "./images/ambience-arabe.jpg" },
+                    { id: 5, name: "Soleil Sofa", price: 4900, image: "./images/soleil-sofa-boca-do-lobo-01-HR.jpg" },
+                    { id: 6, name: "BI-Isaloni 01", price: 5000, image: "./images/bI-isaloni-07-HR.jpg" },
+                    { id: 7, name: "BI-Isaloni 02", price: 5100, image: "https://www.vecteezy.com/photo/32942470-luxury-antique-sofa-and-armchair-modern-comfort" },
+                    { id: 8, name: "Odette sofa", price: 5200, image: "./images/sofa-h.jpeg" },
+                    { id: 9, name: "Luxury Modern Sofa I", price: 5300, image: "./images/image1.jpeg" },
+                    { id: 10, name: "Luxury Modern Sofa J", price: 5400, image: "./images/image2.jpeg" },
+                    { id: 11, name: "Luxury Modern Sofa K", price: 5500, image: "./images/image3.jpeg" },
+                    { id: 12, name: "Luxury Modern Sofa L", price: 5600, image: "./images/image4.jpeg" },
+                    { id: 13, name: "Luxury Modern Sofa M", price: 5700, image: "./images/image5.jpeg" },
+                    { id: 14, name: "Luxury Modern Sofa N", price: 5800, image: "./images/image6.jpeg" },
+                    { id: 15, name: "Luxury Modern Sofa O", price: 5900, image: "./images/image7.jpeg" },
+                    { id: 16, name: "Luxury Modern Sofa P", price: 6000, image: "./images/image8.jpeg" },
+                    { id: 17, name: "Luxury Modern Sofa Q", price: 6100, image: "./images/image9.jpeg" },
+                    { id: 18, name: "Luxury Modern Sofa R", price: 6200, image: "./images/image10.jpeg" },
+                    { id: 19, name: "Luxury Modern Sofa S", price: 6300, image: "./images/image11.jpeg" },
+                    { id: 20, name: "Luxury Modern Sofa T", price: 6400, image: "./images/image12.jpeg" },
+                    { id: 21, name: "Luxury Modern Sofa U", price: 6500, image: "./images/image13.jpeg" },
+                    { id: 22, name: "Luxury Modern Sofa V", price: 6600, image: "./images/image14.jpeg" },
+                    { id: 23, name: "Luxury Modern Sofa W", price: 6700, image: "./images/image15.jpeg" },
+                    { id: 24, name: "Luxury Modern Sofa X", price: 6800, image: "./images/image16.jpeg" },
+                    { id: 25, name: "Luxury Modern Sofa Y", price: 6900, image: "./images/image17.jpeg" },
+                    { id: 26, name: "Luxury Modern Sofa Z", price: 7000, image: "./images/image18.jpeg" },
+                    { id: 27, name: "Luxury Modern Sofa AA", price: 7100, image: "./images/image19.jpeg" },
+                    { id: 28, name: "Luxury Modern Sofa AB", price: 7200, image: "./images/image20.jpeg" },
+                    { id: 29, name: "Luxury Modern Sofa AC", price: 7300, image: "./image/sofa-ac.jpeg" },
+                    { id: 30, name: "Luxury Modern Sofa AD", price: 7400, image: "./image/sofa-ad.jpeg" },
+                    { id: 31, name: "Luxury Modern Sofa AE", price: 7500, image: "./image/sofa-ae.jpeg" },
+                    { id: 32, name: "Luxury Modern Sofa AF", price: 7600, image: "./image/sofa-af.jpeg" },
+                    { id: 33, name: "Luxury Modern Sofa AG", price: 7700, image: "./image/sofa-ag.jpeg" },
+                    { id: 34, name: "Luxury Modern Sofa AH", price: 7800, image: "./image/sofa-ah.jpeg" },
+                    { id: 35, name: "Luxury Modern Sofa AI", price: 7900, image: "./image/sofa-ai.jpeg" },
+                    { id: 36, name: "Luxury Modern Sofa AJ", price: 8000, image: "./image/sofa-aj.jpeg" },
+                    { id: 37, name: "Luxury Modern Sofa AK", price: 8100, image: "./image/sofa-ak.jpeg" },
+                    { id: 38, name: "Luxury Modern Sofa AL", price: 8200, image: "./image/sofa-al.jpeg" },
+                    { id: 39, name: "Luxury Modern Sofa AM", price: 8300, image: "./image/sofa-am.jpeg" },
+                    { id: 40, name: "Luxury Modern Sofa AN", price: 8400, image: "./image/sofa-an.jpeg" },
+                    { id: 41, name: "Luxury Modern Sofa AO", price: 8500, image: "./image/sofa-ao.jpeg" },
+                    { id: 42, name: "Luxury Modern Sofa AP", price: 8600, image: "./image/sofa-ap.jpeg" },
+                    { id: 43, name: "Luxury Modern Sofa AQ", price: 8700, image: "./image/sofa-aq.jpeg" },
+                    { id: 44, name: "Luxury Modern Sofa AR", price: 8800, image: "./image/sofa-ar.jpeg" },
+                    { id: 45, name: "Luxury Modern Sofa AS", price: 8900, image: "./image/sofa-as.jpeg" },
+                    { id: 46, name: "Luxury Modern Sofa AT", price: 9000, image: "./image/sofa-at.jpeg" },
+                    { id: 47, name: "Luxury Modern Sofa AU", price: 9100, image: "./image/sofa-au.jpeg" },
+                    { id: 48, name: "Luxury Modern Sofa AV", price: 9200, image: "./image/sofa-av.jpeg" },
+                    { id: 49, name: "Luxury Modern Sofa AW", price: 9300, image: "./image/sofa-aw.jpeg" },
+                    { id: 50, name: "Luxury Modern Sofa AX", price: 9400, image: "./image/sofa-ax.jpeg" },
+                    { id: 51, name: "Luxury Modern Sofa AY", price: 9500, image: "./image/sofa-ay.jpeg" },
+                    { id: 52, name: "Luxury Modern Sofa AZ", price: 9600, image: "./image/sofa-az.jpeg" },
+                    { id: 53, name: "Luxury Modern Sofa BA", price: 9700, image: "./image/sofa-ba.jpeg" },
+                    { id: 54, name: "Luxury Modern Sofa BB", price: 9800, image: "./image/sofa-bb.jpeg" },
+                    { id: 55, name: "Luxury Modern Sofa BC", price: 9900, image: "./image/sofa-bc.jpeg" },
+                    { id: 56, name: "Luxury Modern Sofa BD", price: 10000, image: "./image/sofa-bd.jpeg" },
+                    { id: 57, name: "Luxury Modern Sofa BE", price: 10100, image: "./image/sofa-be.jpeg" },
+                    { id: 58, name: "Luxury Modern Sofa BF", price: 10200, image: "./image/sofa-bf.jpeg" },
+                    { id: 59, name: "Luxury Modern Sofa BG", price: 10300, image: "./image/sofa-bg.jpeg" },
+                    { id: 60, name: "Luxury Modern Sofa BH", price: 10400, image: "./image/sofa-bh.jpeg" },
+                    { id: 61, name: "Luxury Modern Sofa BI", price: 10500, image: "./image/sofa-bi.jpeg" },
+                    { id: 62, name: "Luxury Modern Sofa BJ", price: 10600, image: "./image/sofa-bj.jpeg" },
+                    { id: 63, name: "Luxury Modern Sofa BK", price: 10700, image: "./image/sofa-bk.jpeg" },
+                    { id: 64, name: "Luxury Modern Sofa BL", price: 10800, image: "./image/sofa-bl.jpeg" },
+                    { id: 65, name: "Luxury Modern Sofa BM", price: 10900, image: "./image/sofa-bm.jpeg" },
+                    { id: 66, name: "Luxury Modern Sofa BN", price: 11000, image: "./image/sofa-bn.jpeg" },
+                    { id: 67, name: "Luxury Modern Sofa BO", price: 11100, image: "./image/sofa-bo.jpeg" },
+                    { id: 68, name: "Luxury Modern Sofa BP", price: 11200, image: "./image/sofa-bp.jpeg" },
+                    { id: 69, name: "Luxury Modern Sofa BQ", price: 11300, image: "./image/sofa-bq.jpeg" },
+                    { id: 70, name: "Luxury Modern Sofa BR", price: 11400, image: "./image/sofa-br.jpeg" },
+                    { id: 71, name: "Luxury Modern Sofa BS", price: 11500, image: "./image/sofa-bs.jpeg" },
+                    { id: 72, name: "Luxury Modern Sofa BT", price: 11600, image: "./image/sofa-bt.jpeg" },
+                    { id: 73, name: "Luxury Modern Sofa BU", price: 11700, image: "./image/sofa-bu.jpeg" },
+                    { id: 74, name: "Luxury Modern Sofa BV", price: 11800, image: "./image/sofa-bv.jpeg" },
+                    { id: 75, name: "Luxury Modern Sofa BW", price: 11900, image: "./image/sofa-bw.jpeg" },
+                    { id: 76, name: "Luxury Modern Sofa BX", price: 12000, image: "./image/sofa-bx.jpeg" },
+                    { id: 77, name: "Luxury Modern Sofa BY", price: 12100, image: "./image/sofa-by.jpeg" },
+                    { id: 78, name: "Luxury Modern Sofa BZ", price: 12200, image: "./image/sofa-bz.jpeg" },
+                    { id: 79, name: "Luxury Modern Sofa CA", price: 12300, image: "./image/sofa-ca.jpeg" },
+                    { id: 80, name: "Luxury Modern Sofa CB", price: 12400, image: "./image/sofa-cb.jpeg" },
+                    { id: 81, name: "Luxury Modern Sofa CC", price: 12500, image: "./image/sofa-cc.jpeg" },
+                    { id: 82, name: "Luxury Modern Sofa CD", price: 12600, image: "./image/sofa-cd.jpeg" },
+                    { id: 83, name: "Luxury Modern Sofa CE", price: 12700, image: "./image/sofa-ce.jpeg" },
+                    { id: 84, name: "Luxury Modern Sofa CF", price: 12800, image: "./image/sofa-cf.jpeg" },
+                    { id: 85, name: "Luxury Modern Sofa CG", price: 12900, image: "./image/sofa-cg.jpeg" },
+                    { id: 86, name: "Luxury Modern Sofa CH", price: 13000, image: "./image/sofa-ch.jpeg" },
+                    { id: 87, name: "Luxury Modern Sofa CI", price: 13100, image: "./image/sofa-ci.jpeg" },
+                    { id: 88, name: "Luxury Modern Sofa CJ", price: 13200, image: "./image/sofa-cj.jpeg" },
+                    { id: 89, name: "Luxury Modern Sofa CK", price: 13300, image: "./image/sofa-ck.jpeg" },
+                    { id: 90, name: "Luxury Modern Sofa CL", price: 13400, image: "./image/sofa-cl.jpeg" },
+                    { id: 91, name: "Luxury Modern Sofa CC", price: 12500, image: "./image/sofa-cc.jpeg" },
+                    { id: 92, name: "Luxury Modern Sofa CD", price: 12600, image: "./image/sofa-cd.jpeg" },
+                    { id: 93, name: "Luxury Modern Sofa CE", price: 12700, image: "./image/sofa-ce.jpeg" },
+                    { id: 94, name: "Luxury Modern Sofa CF", price: 12800, image: "./image/sofa-cf.jpeg" },
+                    { id: 95, name: "Luxury Modern Sofa CG", price: 12900, image: "./image/sofa-cg.jpeg" },
+                    { id: 96, name: "Luxury Modern Sofa CH", price: 13000, image: "./image/sofa-ch.jpeg" },
+                    { id: 97, name: "Luxury Modern Sofa CI", price: 13100, image: "./image/sofa-ci.jpeg" },
+                    { id: 98, name: "Luxury Modern Sofa CJ", price: 13200, image: "./image/sofa-cj.jpeg" },
+                    { id: 99, name: "Luxury Modern Sofa CK", price: 13300, image: "./image/sofa-ck.jpeg" },
+                    { id: 100, name: "Luxury Modern Sofa CL", price: 13400, image: "./image/sofa-cl.jpeg" },
+                    
+                ];
+            
+                // Dynamically generate products
+                products.forEach(product => {
+                    document.write(`
+                        <div class="featured-contain">
+                            <div class="featured-image10" style="background-image: url('${product.image}'); background-size: cover; background-position: center;"></div>
+                            <div class="featured-text">
+                                <h4>${product.name}</h4>
+                                <button 
+                                    class="add-to-cart-btn" 
+                                    data-product-id="${product.id}" 
+                                    data-product-name="${product.name}" 
+                                    data-product-price="${product.price}" 
+                                    data-product-image="${product.image}" 
+                                    onclick="addToCart(this)">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="featured-price">
+                                <h4>$ ${product.price}</h4>
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(button) {
+            const id = button.getAttribute('data-product-id');
+            const name = button.getAttribute('data-product-name');
+            const price = parseFloat(button.getAttribute('data-product-price'));
+            const image = button.getAttribute('data-product-image');
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === Number(id));
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} has been added to the cart!`);
+        }
+    </script>
+</body>
+</html>

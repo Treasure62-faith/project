@@ -30,6 +30,136 @@
             background: #ff6600;
             transform: translateY(-2px);
         }
+
+          /* Styling for product cards */
+    .all{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .product-card1 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card2 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card3 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card4 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card5 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card6 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card7 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product-card8 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card9 {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card1 > img {
+        width: 25%;
+        height: 70%;
+        border-radius: 8px;
+    }
+    .product-card2 > img {
+        width: 25%;
+        height: 70%;
+        border-radius: 8px;
+    }
+    .product-card3 > img {
+        width: 25%;
+        height: 70%;
+        border-radius: 8px;
+    }
+    .product-card4 > img {
+        max-width: 50%;
+        height: 50%;
+        border-radius: 8px;
+    }
+    .product-card5 > img {
+        max-width: 50%;
+        height: 50%;
+        border-radius: 8px;
+    }
+    .product-card6 > img {
+        width: 25%;
+        height: 50%;
+        border-radius: 8px;
+    }
+    .product-card7 > img {
+        width: 25%;
+        height: 70%;
+        border-radius: 8px;
+    }
+    .product-card8 > img {
+        max-width: 50%;
+        height: 50%;
+        border-radius: 8px;
+    }
+    .product-card9 > img {
+        max-width: 50%;
+        height: 50%;
+        border-radius: 8px;
+    }
+
+    .product-card h4 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+    }
+
+    .product-card p {
+        color: #555;
+        font-size: 1rem;
+    }
     </style>
     <header>
         <div class="icon-box">
@@ -170,9 +300,9 @@
                         <button 
                         class="add-to-cart-btn" 
                         data-product-id="1" 
-                        data-product-name="Center Table" 
+                        data-product-name="Foam sofa" 
                         data-product-price="2000" 
-                        data-product-image="./image/Center table.png" 
+                        data-product-image="./image/Foam sofa.jpeg" 
                         onclick="addToCart(this)">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </button>
@@ -196,9 +326,9 @@
                         <button 
                         class="add-to-cart-btn" 
                         data-product-id="2" 
-                        data-product-name="Foam Sofa" 
+                        data-product-name="Center table" 
                         data-product-price="4500" 
-                        data-product-image="./image/foam-sofa.png" 
+                        data-product-image="./image/Center table.jpeg" 
                         onclick="addToCart(this)">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </button>
@@ -222,9 +352,9 @@
                         <button 
                         class="add-to-cart-btn" 
                         data-product-id="3" 
-                        data-product-name="Slick" 
+                        data-product-name="Sea view" 
                         data-product-price="4500" 
-                        data-product-image="./image/foam-sofa.png" 
+                        data-product-image="./image/Sea view.jpeg" 
                         onclick="addToCart(this)">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </button>
@@ -442,9 +572,9 @@
                         <button 
                         class="add-to-cart-btn" 
                         data-product-id="9" 
-                        data-product-name="Designer sofa" 
+                        data-product-name="Black heart" 
                         data-product-price="4500" 
-                        data-product-image="./image/Designer sofa.jpeg" 
+                        data-product-image="./image/Black heart.jpeg" 
                         onclick="addToCart(this)">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </button>
@@ -465,7 +595,15 @@
                     <div class="featured-image7"></div>
                     <div class="featured-text">
                         <h4>The Best Mordern Massage Chair For You</h4>
-                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button 
+                        class="add-to-cart-btn" 
+                        data-product-id="10" 
+                        data-product-name="Top view" 
+                        data-product-price="4500" 
+                        data-product-image="./image/Top view.jpeg" 
+                        onclick="addToCart(this)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </button>
                     </div>
                     <div class="featured-price">
                         <h4>$ 6000</h4>
@@ -483,7 +621,15 @@
                     <div class="featured-image8"></div>
                     <div class="featured-text">
                         <h4>The Best Mordern Massage Chair For You</h4>
-                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button 
+                        class="add-to-cart-btn" 
+                        data-product-id="11" 
+                        data-product-name="Yatch sofa" 
+                        data-product-price="4500" 
+                        data-product-image="./image/Yatch sofa.jpeg" 
+                        onclick="addToCart(this)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </button>
                     </div>
                     <div class="featured-price">
                         <h4>$ 6000</h4>
@@ -501,7 +647,15 @@
                     <div class="featured-image9"></div>
                     <div class="featured-text">
                         <h4>The Best Mordern Massage Chair For You</h4>
-                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button 
+                        class="add-to-cart-btn" 
+                        data-product-id="12" 
+                        data-product-name="Royal" 
+                        data-product-price="4500" 
+                        data-product-image="./image/Royal.jpeg" 
+                        onclick="addToCart(this)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </button>
                     </div>
                     <div class="featured-price">
                         <h4>$ 6000</h4>
@@ -519,7 +673,15 @@
                     <div class="featured-image10"></div>
                     <div class="featured-text">
                         <h4>The Best Mordern Massage Chair For You</h4>
-                        <button class="add-to-cart-btn" onclick="addToCart('3', 'Slick', 6000, './image/slick.png')"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                        <button 
+                        class="add-to-cart-btn" 
+                        data-product-id="13" 
+                        data-product-name="Luxury mordern sofa" 
+                        data-product-price="4500" 
+                        data-product-image="./image/Luxury mordern sofa.jpeg" 
+                        onclick="addToCart(this)">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </button>
                     </div>
                     <div class="featured-price">
                         <h4>$ 6000</h4>
@@ -580,6 +742,67 @@
             </div>
         </div>
 
+        <div class="suggested">
+            <div class="suggest-head">
+                <h2>SUGGESTED FOR YOU</h2>
+                <button onclick="updateSuggestedContent('option1')">Option 1</button>
+                <button onclick="updateSuggestedContent('option2')">Option 2</button>
+                <button onclick="updateSuggestedContent('option3')">Option 3</button>
+                <button onclick="updateSuggestedContent('option4')">Option 4</button>
+                <button onclick="updateSuggestedContent('option5')">Option 5</button>
+            </div>
+            <div class="suggest-contain">
+                <!-- Product cards will be dynamically added here -->
+                 <div class="all">
+                    <div class="product-card1">
+                        <img src="./images/images1.jpeg" alt="Product 1">
+                        <h4>Product 1</h4>
+                        <p>$100</p>
+                    </div>
+                    <div class="product-card2">
+                        <img src="./images/bl-isaloni-07-HR.jpg" alt="Product 2">
+                        <h4>Product 2</h4>
+                        <p>$200</p>
+                    </div>
+                    <div class="product-card3">
+                        <img src="./images/ambience-arabe.jpg" alt="Product 3">
+                        <h4>Product 3</h4>
+                        <p>$300</p>
+                    </div>
+                    <div class="product-card4">
+                        <img src="./images/Corsica single.webp" alt="Product 4">
+                        <h4>Product 4</h4>
+                        <p>$400</p>
+                    </div>
+                    <div class="product-card5">
+                        <img src="./images/images14.jpeg" alt="Product 5">
+                        <h4>Product 5</h4>
+                        <p>$500</p>
+                    </div>
+                    <div class="product-card6">
+                        <img src="./images/images11.jpeg" alt="Product 6">
+                        <h4>Product 6</h4>
+                        <p>$600</p>
+                    </div>
+                    <div class="product-card7">
+                        <img src="./images/images20.jpeg" alt="Product 7">
+                        <h4>Product 7</h4>
+                        <p>$700</p>
+                    </div>
+                    <div class="product-card8">
+                        <img src="./images/Sexy mysterious.jpg" alt="Product 8">
+                        <h4>Product 8</h4>
+                        <p>$800</p>
+                    </div>
+                    <div class="product-card9">
+                        <img src="./images/versailles_amb.jpg" alt="Product 9">
+                        <h4>Product 9</h4>
+                        <p>$900</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
     <script>
         const productImageMapping = {
     "1": "./image/Center table.png",
@@ -587,6 +810,56 @@
     "3": "./image/slick.png",
     // Add more product IDs and their corresponding images here
 };
+
+  // Sample product data for each option
+  const productData = {
+        option1: [
+            { name: "Product 1", price: "$100", image: "./image/product1.jpg" },
+            { name: "Product 2", price: "$200", image: "./image/product2.jpg" },
+            { name: "Product 3", price: "$300", image: "./image/product3.jpg" },
+            { name: "Product 4", price: "$400", image: "./image/product4.jpg" },
+            { name: "Product 5", price: "$500", image: "./image/product5.jpg" },
+            { name: "Product 6", price: "$600", image: "./image/product6.jpg" },
+            { name: "Product 7", price: "$700", image: "./image/product7.jpg" },
+            { name: "Product 8", price: "$800", image: "./image/product8.jpg" },
+            { name: "Product 9", price: "$900", image: "./image/product9.jpg" },
+        ],
+        option2: [
+            { name: "Product A", price: "$150", image: "./image/productA.jpg" },
+            { name: "Product B", price: "$250", image: "./image/productB.jpg" },
+            { name: "Product C", price: "$350", image: "./image/productC.jpg" },
+            { name: "Product D", price: "$450", image: "./image/productD.jpg" },
+            { name: "Product E", price: "$550", image: "./image/productE.jpg" },
+            { name: "Product F", price: "$650", image: "./image/productF.jpg" },
+            { name: "Product G", price: "$750", image: "./image/productG.jpg" },
+            { name: "Product H", price: "$850", image: "./image/productH.jpg" },
+            { name: "Product I", price: "$950", image: "./image/productI.jpg" },
+        ],
+        // Add more options as needed
+    };
+
+    // Function to update the content of suggest-contain
+    function updateSuggestedContent(option) {
+        const suggestContain = document.getElementById('suggest-contain');
+        const products = productData[option];
+
+        if (!products) {
+            suggestContain.innerHTML = '<p>No products available for this option.</p>';
+            return;
+        }
+
+        // Generate product cards
+        const productCards = products.map(product => `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}">
+                <h4>${product.name}</h4>
+                <p>${product.price}</p>
+            </div>
+        `).join('');
+
+        // Update the inner HTML of suggest-contain
+        suggestContain.innerHTML = `<div class="product-grid">${productCards}</div>`;
+    }
 
 function addToCart(button) {
     const id = button.getAttribute('data-product-id');
