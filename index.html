@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="styles.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     </head>
 <body>
     <style>
@@ -30,136 +31,6 @@
             background: #ff6600;
             transform: translateY(-2px);
         }
-
-          /* Styling for product cards */
-    .all{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-top: 20px;
-    }
-
-    .product-card1 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card2 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card3 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card4 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card5 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card6 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card7 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .product-card8 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .product-card9 {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        display: flex;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .product-card1 > img {
-        width: 25%;
-        height: 70%;
-        border-radius: 8px;
-    }
-    .product-card2 > img {
-        width: 25%;
-        height: 70%;
-        border-radius: 8px;
-    }
-    .product-card3 > img {
-        width: 25%;
-        height: 70%;
-        border-radius: 8px;
-    }
-    .product-card4 > img {
-        max-width: 50%;
-        height: 50%;
-        border-radius: 8px;
-    }
-    .product-card5 > img {
-        max-width: 50%;
-        height: 50%;
-        border-radius: 8px;
-    }
-    .product-card6 > img {
-        width: 25%;
-        height: 50%;
-        border-radius: 8px;
-    }
-    .product-card7 > img {
-        width: 25%;
-        height: 70%;
-        border-radius: 8px;
-    }
-    .product-card8 > img {
-        max-width: 50%;
-        height: 50%;
-        border-radius: 8px;
-    }
-    .product-card9 > img {
-        max-width: 50%;
-        height: 50%;
-        border-radius: 8px;
-    }
-
-    .product-card h4 {
-        margin: 10px 0;
-        font-size: 1.2rem;
-    }
-
-    .product-card p {
-        color: #555;
-        font-size: 1rem;
-    }
     </style>
     <header>
         <div class="icon-box">
@@ -187,9 +58,10 @@
             <div class="dropdown2">
                 <a href="#">English</a>
                 <div class="dropdown-content2">
-                    <a href="#">Japanese</a>
-                    <a href="#">French</a>
-                    <a href="#">Spanish</a>
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="ja">Japanese</a>
+                    <a href="#" data-lang="fr">French</a>
+                    <a href="#" data-lang="es">Spanish</a>
                 </div>
             </div>
 
@@ -229,10 +101,10 @@
     <div class="intro">
         <div class="intro-content gen-layout">
             <div class="intro-text">
-                <h4>Furnitures & Home Deco 2025 Limited Edition</h4>
-                <h2>Designed For Living, Crafted For Comfort</h2>
-                <h5>The art of enhancing the interior of a house or a room to make it more aesthetically pleasing and functional for the occupants</h5>
-
+                <h4 id="intro-subtitle">Furnitures & Home Deco 2025 Limited Edition</h4>
+                <h2 id="intro-title">Designed For Living, Crafted For Comfort</h2>
+                <h5 id="intro-description">The art of enhancing the interior of a house or a room to make it more aesthetically pleasing and functional for the occupants</h5>
+    
                 <form onsubmit="return handleSubmit()">
                     <button type="submit" onclick="handleClick()">Shop Special Edition</button>
                 </form>
@@ -246,8 +118,8 @@
     <div class="Category">
         <div class="category-content gen-layout">
             <div class="category-text">
-                <h2>Our Product Category</h2>
-                <h5>Find the perfect furniture for your home or office</h5>
+                <h2 id="category-title">Our Product Category</h2>
+                <h5 id="category-description">Find the perfect furniture for your home or office</h5>
             </div>
             <div class="category-image">
                 <div class="image1">
@@ -281,8 +153,8 @@
     <div class="fresh-picks">
         <div class="freshpicks-content gen-layout">
             <div class="freshpicks-text">
-                <h2>Fresh Picks For You</h2>
-                <h5>Our latest and greatest furniture</h5>
+                <h2 id="freshpicks-title">Fresh Picks For You</h2>
+                <h5 id="freshpicks-description">Our latest and greatest furniture</h5>
 
                 <div class="picklinks">
                     <a href="product.html">SHOP ALL</a>
@@ -382,9 +254,9 @@
         <div class="ads-box gen-layout">
        <div class="best-quality">
         <div class="best-text">
-        <h4>BEST QUALITY</h4>
-        <h2>SIT ON THE CLOUDS</h2>
-        <h5>On orders $300+ Use Coupon Code:</h5>
+        <h4 id="best-text-subtitle">BEST QUALITY</h4>
+        <h2 id="best-text-title">SIT ON THE CLOUDS</h2>
+        <h5 id="best-text-desciption">On orders $300+ Use Coupon Code:</h5>
         </div>
         <div class="best-image">
             <img src="./image/New editions-picaai.png" alt="">
@@ -728,80 +600,82 @@
             </div>
            </div> 
         </div>
+
+        <div class="Testimonials">
+            <div class="testimonials-content">
+                <button class="nav-btn prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                
+                <div class="testimonial-cover active">
+                    <div class="testimonials-product">
+                        <div class="testimonial-image1"></div>
+                        <div class="testimonial-text">
+                            <h4>Black Heart Sofa</h4>
+                            <h5>$5000</h5>
+                        </div>
+                    </div>
+                    <h4>"This is the most comfortable sofa I have ever purchased! The quality is top-notch and it fits perfectly in my living room. Highly recommend Cozy Comfort!"</h4>
+                    <div class="testimonials-buyer">
+                        <div class="testimonial-img1"></div>
+                        <div class="testimonial-text">
+                            <h4>Michael Johnson</h4>
+                            <h5>$7500</h5>
+                        </div>
+                    </div>
+                </div>
         
+                <div class="testimonial-cover">
+                    <div class="testimonials-product">
+                        <div class="testimonial-image2"></div>
+                        <div class="testimonial-text">
+                            <h4>Curved off-white</h4>
+                            <h5>$4500</h5>
+                        </div>
+                    </div>
+                    <h4>"Cozy Comfort has truly transformed my living space. The attention to detail and the quality of their furniture are exceptional. I couldn't be happier with my purchase!"</h4>
+                    <div class="testimonials-buyer">
+                        <div class="testimonial-img2"></div>
+                        <div class="testimonial-text">
+                            <h4>Sarah Johnson</h4>
+                            <h5>$7500</h5>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="big-sale">
-            <div class="big-image1"></div>
-            <div class="big-text1">
-                <h1>BIG SALE</h1>
-                <h2>BIG SALE</h2>
-            </div>
-            <div class="big-image2"></div>
-            <div class="big-text2">
-                <h3>OVER 250 COMFY AND SLICK STYLES AVAILABLE</h3>
+                <div class="testimonial-cover">
+                    <div class="testimonials-product">
+                        <div class="testimonial-image3"></div>
+                        <div class="testimonial-text">
+                            <h4>Yatch sofa</h4>
+                            <h5>$7500</h5>
+                        </div>
+                    </div>
+                    <h4>"Cozy Comfort exceeded my expectations! The furniture is not only stylish but also incredibly durable. I will definitely be a returning customer!"</h4>
+                    <div class="testimonials-buyer">
+                        <div class="testimonial-img3"></div>
+                        <div class="testimonial-text">
+                            <h4>Emily Smith</h4>
+                            <h5>$7500</h5>
+                        </div>
+                    </div>
+                </div>
+        
+                <button class="nav-btn next"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
             </div>
         </div>
 
-        <div class="suggested">
-            <div class="suggest-head">
-                <h2>SUGGESTED FOR YOU</h2>
-                <button onclick="updateSuggestedContent('option1')">Option 1</button>
-                <button onclick="updateSuggestedContent('option2')">Option 2</button>
-                <button onclick="updateSuggestedContent('option3')">Option 3</button>
-                <button onclick="updateSuggestedContent('option4')">Option 4</button>
-                <button onclick="updateSuggestedContent('option5')">Option 5</button>
-            </div>
-            <div class="suggest-contain">
-                <!-- Product cards will be dynamically added here -->
-                 <div class="all">
-                    <div class="product-card1">
-                        <img src="./images/images1.jpeg" alt="Product 1">
-                        <h4>Product 1</h4>
-                        <p>$100</p>
-                    </div>
-                    <div class="product-card2">
-                        <img src="./images/bl-isaloni-07-HR.jpg" alt="Product 2">
-                        <h4>Product 2</h4>
-                        <p>$200</p>
-                    </div>
-                    <div class="product-card3">
-                        <img src="./images/ambience-arabe.jpg" alt="Product 3">
-                        <h4>Product 3</h4>
-                        <p>$300</p>
-                    </div>
-                    <div class="product-card4">
-                        <img src="./images/Corsica single.webp" alt="Product 4">
-                        <h4>Product 4</h4>
-                        <p>$400</p>
-                    </div>
-                    <div class="product-card5">
-                        <img src="./images/images14.jpeg" alt="Product 5">
-                        <h4>Product 5</h4>
-                        <p>$500</p>
-                    </div>
-                    <div class="product-card6">
-                        <img src="./images/images11.jpeg" alt="Product 6">
-                        <h4>Product 6</h4>
-                        <p>$600</p>
-                    </div>
-                    <div class="product-card7">
-                        <img src="./images/images20.jpeg" alt="Product 7">
-                        <h4>Product 7</h4>
-                        <p>$700</p>
-                    </div>
-                    <div class="product-card8">
-                        <img src="./images/Sexy mysterious.jpg" alt="Product 8">
-                        <h4>Product 8</h4>
-                        <p>$800</p>
-                    </div>
-                    <div class="product-card9">
-                        <img src="./images/versailles_amb.jpg" alt="Product 9">
-                        <h4>Product 9</h4>
-                        <p>$900</p>
-                    </div>
-                 </div>
-            </div>
-        </div>
+        <!-- Feedback Section -->
+<div class="feedback-section">
+    <h2>Rate Your Product</h2>
+    <div class="rating">
+        <span class="fa fa-star" data-value="1"></span>
+        <span class="fa fa-star" data-value="2"></span>
+        <span class="fa fa-star" data-value="3"></span>
+        <span class="fa fa-star" data-value="4"></span>
+        <span class="fa fa-star" data-value="5"></span>
+    </div>
+    <textarea id="feedback-text" placeholder="Write your feedback here..."></textarea>
+    <button id="submit-feedback" type="button">Submit Feedback</button>
+</div>
 
     <script>
         const productImageMapping = {
@@ -810,33 +684,6 @@
     "3": "./image/slick.png",
     // Add more product IDs and their corresponding images here
 };
-
-  // Sample product data for each option
-  const productData = {
-        option1: [
-            { name: "Product 1", price: "$100", image: "./image/product1.jpg" },
-            { name: "Product 2", price: "$200", image: "./image/product2.jpg" },
-            { name: "Product 3", price: "$300", image: "./image/product3.jpg" },
-            { name: "Product 4", price: "$400", image: "./image/product4.jpg" },
-            { name: "Product 5", price: "$500", image: "./image/product5.jpg" },
-            { name: "Product 6", price: "$600", image: "./image/product6.jpg" },
-            { name: "Product 7", price: "$700", image: "./image/product7.jpg" },
-            { name: "Product 8", price: "$800", image: "./image/product8.jpg" },
-            { name: "Product 9", price: "$900", image: "./image/product9.jpg" },
-        ],
-        option2: [
-            { name: "Product A", price: "$150", image: "./image/productA.jpg" },
-            { name: "Product B", price: "$250", image: "./image/productB.jpg" },
-            { name: "Product C", price: "$350", image: "./image/productC.jpg" },
-            { name: "Product D", price: "$450", image: "./image/productD.jpg" },
-            { name: "Product E", price: "$550", image: "./image/productE.jpg" },
-            { name: "Product F", price: "$650", image: "./image/productF.jpg" },
-            { name: "Product G", price: "$750", image: "./image/productG.jpg" },
-            { name: "Product H", price: "$850", image: "./image/productH.jpg" },
-            { name: "Product I", price: "$950", image: "./image/productI.jpg" },
-        ],
-        // Add more options as needed
-    };
 
     // Function to update the content of suggest-contain
     function updateSuggestedContent(option) {
@@ -991,11 +838,155 @@ function addToCart(button) {
             });
         });
 
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loading-screen').style.display = 'none';
-            }, 100); // 10 seconds delay
+        // Define translations for each language
+        const translations = {
+  en: {
+    introSubtitle: "Furnitures & Home Deco 2025 Limited Edition",
+    introTitle: "Designed For Living, Crafted For Comfort",
+    introDescription: "The art of enhancing the interior of a house or a room to make it more aesthetically pleasing and functional for the occupants",
+    categoryTitle: "Our Product Category",
+    categoryDescription: "Find the perfect furniture for your home or office",
+    freshpicksTitle: "Fresh Picks For You",
+    freshpicksDescription: "Our latest and greatest furniture"
+  },
+  ja: {
+    introSubtitle: "家具とホームデコ2025限定版",
+    introTitle: "生活のために設計され、快適さのために作られました",
+    introDescription: "家や部屋のインテリアを美的に魅力的で機能的にするための芸術",
+    categoryTitle: "私たちの製品カテゴリー",
+    categoryDescription: "あなたの家やオフィスに最適な家具を見つけてください",
+    freshpicksTitle: "あなたのための新鮮な選択",
+    freshpicksDescription: "私たちの最新で最高の家具"
+  },
+  fr: {
+    introSubtitle: "Meubles et décoration intérieure édition limitée 2025",
+    introTitle: "Conçu pour vivre, fabriqué pour le confort",
+    introDescription: "L'art d'améliorer l'intérieur d'une maison ou d'une pièce pour la rendre plus esthétique et fonctionnelle pour les occupants",
+    categoryTitle: "Notre catégorie de produits",
+    categoryDescription: "Trouvez le meuble parfait pour votre maison ou votre bureau",
+    freshpicksTitle: "Choix frais pour vous",
+    freshpicksDescription: "Nos meubles les plus récents et les meilleurs"
+  },
+  es: {
+    introSubtitle: "Muebles y decoración del hogar edición limitada 2025",
+    introTitle: "Diseñado para vivir, creado para la comodidad",
+    introDescription: "El arte de mejorar el interior de una casa o habitación para que sea más estético y funcional para los ocupantes",
+    categoryTitle: "Nuestra categoría de productos",
+    categoryDescription: "Encuentra los muebles perfectos para tu hogar u oficina",
+    freshpicksTitle: "Selecciones frescas para ti",
+    freshpicksDescription: "Nuestros muebles más recientes y mejores"
+  }
+};
+// Add event listeners to the dropdown links
+document.querySelectorAll('.dropdown-content2 a').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    const selectedLang = event.target.getAttribute('data-lang'); // Get the selected language
+    changeLanguage(selectedLang);
+  });
+});
+// Function to change the language
+function changeLanguage(lang) {
+  const translation = translations[lang];
+  if (translation) {
+    document.getElementById('intro-subtitle').textContent = translation.introSubtitle;
+    document.getElementById('intro-title').textContent = translation.introTitle;
+    document.getElementById('intro-description').textContent = translation.introDescription;
+    document.getElementById('category-title').textContent = translation.categoryTitle;
+    document.getElementById('category-description').textContent = translation.categoryDescription;
+    document.getElementById('freshpicks-title').textContent = translation.freshpicksTitle;
+    document.getElementById('freshpicks-description').textContent = translation.freshpicksDescription;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const testimonials = document.querySelectorAll('.testimonial-cover');
+    const prevBtn = document.querySelector('.nav-btn.prev');
+    const nextBtn = document.querySelector('.nav-btn.next');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.toggle('active', i === index);
         });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
+    });
+
+    // Show the first testimonial by default
+    showTestimonial(currentIndex);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const stars = document.querySelectorAll('.rating .fa-star');
+    const feedbackText = document.getElementById('feedback-text');
+    const submitButton = document.getElementById('submit-feedback');
+    let selectedRating = 0;
+
+    // Handle star rating
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            selectedRating = index + 1;
+            stars.forEach((s, i) => {
+                s.classList.toggle('checked', i < selectedRating);
+            });
+        });
+    });
+
+    // Handle feedback submission
+    submitButton.addEventListener('click', () => {
+        const feedback = feedbackText.value.trim();
+
+        if (selectedRating === 0) {
+            alert('Please select a rating.');
+            return;
+        }
+
+        if (feedback === '') {
+            alert('Please enter your feedback.');
+            return;
+        }
+
+        // Send feedback via EmailJS
+        emailjs.send('buyer_feedback', 'template_4iyi6ee', {
+            rating: selectedRating,
+            feedback: feedback,
+        }).then(() => {
+            alert('Thank you for your feedback!');
+            feedbackText.value = '';
+            stars.forEach(star => star.classList.remove('checked'));
+            selectedRating = 0;
+        }).catch(error => {
+            console.error('Error sending feedback:', error);
+            alert('Failed to send feedback. Please try again later.');
+        });
+    });
+
+    // Hide loading screen
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none';
+    }
+});
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/ripples.js@0.1.0/dist/ripples.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script>
+    // Initialize EmailJS
+    (function () {
+        emailjs.init('buyer_feedback'); // Replace with your EmailJS user ID
+    })();
+    </script>
     </script>
 </body>
 </html>
