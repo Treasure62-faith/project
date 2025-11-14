@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Main Container Styles */
+        .subscription-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        /* Form Styles */
+        .subscription-form {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #dee2e6;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #4dabf7;
+            box-shadow: 0 0 8px rgba(77, 171, 247, 0.3);
+        }
+
+        /* Icon Button Styles */
+        .icon-button {
+            background: #4dabf7;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .icon-button:hover {
+            background: #339af0;
+            transform: scale(1.05);
+        }
+
+        /* Subscribe Page Styles */
+        .subscribe-page {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .confirmation-message {
+            background: #d1e7dd;
+            color: #0f5132;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Subscription Form -->
+    <div class="subscription-container">
+        <form class="subscription-form" id="subscriptionForm" action="olafarejoshua08@gmail.com" method="post" enctype="text/plain">
+            <input type="email" class="email-input" placeholder="Enter your email" required>
+            <button type="submit" class="icon-button">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Subscribe Page (separate file: subscribe.html) -->
+    <div class="subscribe-page" style="display: none;">
+        <div class="confirmation-message">
+            <h2>🎉 Subscription Successful!</h2>
+            <p>Thank you for joining our newsletter.</p>
+            <a href="/" style="color: #339af0; text-decoration: none;">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Form Submission Handling
+        document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('.email-input').value;
+            
+            // Simple validation
+            if (/\S+@\S+\.\S+/.test(email)) {
+                // Show confirmation (in real implementation, use actual email service)
+                alert(`Confirmation email sent to ${email}`);
+                
+                // Redirect to subscribe page
+                window.location.href = 'subscribe.html';
+            } else {
+                alert('Please enter a valid email address');
+            }
+        });
+    </script>
+</body>
+</html>

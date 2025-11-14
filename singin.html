@@ -130,7 +130,26 @@
         margin: 2rem 0;
         position: relative;
     }
+    .outline-btn {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        border-radius: 8px;
+        font-size: 1.1rem;
+        padding: 1rem;
+        width: 100%;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s, transform 0.3s;
+        font-weight: 600;
+        margin-top: 1.5rem;
+    }
 
+    .outline-btn:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: var(--shadow);
+    }
     h4::before,
     h4::after {
         content: '';
@@ -268,7 +287,7 @@
                     <div class="content">
                         <h2>New Here?</h2>
                         <p>Create an account and discover amazing features!</p>
-                        <button class="outline-btn">Sign Up</button>
+                        <a href="signup.html"><button class="outline-btn">Sign Up</button></a>
                     </div>
                 </div>
             </div>

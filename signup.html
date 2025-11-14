@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slick Sign Up | System Glow UI</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #ffcc00;
+  --secondary: #4e5fff;
+  --accent: #00e0ff;
+  --bg: #0e0e16;
+  --glass: rgba(255, 255, 255, 0.08);
+  --blur: blur(20px);
+  --text: #f8f9fc;
+  --muted: #a7a9be;
+  --radius: 20px;
+  --transition: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1a1a2e, #0e0e16);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Soft glowing background pulse */
+body::before {
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+  opacity: 0.08;
+  filter: blur(120px);
+  animation: glowMove 15s infinite alternate;
+}
+@keyframes glowMove {
+  from { transform: translate(0,0); }
+  to { transform: translate(80px,60px); }
+}
+
+/* Clean, centered card */
+.container {
+  background: var(--glass);
+  border-radius: var(--radius);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.35);
+  backdrop-filter: var(--blur);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 2.5rem 2rem;
+  width: 420px;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient ring aura without masking issues */
+.container::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  z-index: -1;
+  opacity: 0.5;
+  filter: blur(25px);
+  animation: borderFlow 6s linear infinite;
+}
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+p {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.3rem;
+}
+.input-group input {
+  width: 100%;
+  padding: 1.1rem 1rem 1.1rem 3rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(0,224,255,0.5);
+}
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--muted);
+  transition: var(--transition);
+}
+.password-toggle:hover {
+  color: var(--accent);
+}
+
+button {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border: none;
+  border-radius: 12px;
+  color: var(--bg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: var(--transition);
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+}
+
+.divider {
+  color: var(--muted);
+  margin: 1.4rem 0;
+  font-size: 0.95rem;
+  position: relative;
+}
+.divider::before, .divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.social-row img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.social-row img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 14px var(--accent);
+  border-color: var(--accent);
+}
+
+.login-link {
+  margin-top: 1.7rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.login-link a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Sign Up</h1>
+  <p>Join the system and start your journey.</p>
+
+  <form id="signup-form">
+    <div class="input-group">
+      <i class="fa fa-user"></i>
+      <input type="text" id="fullname" placeholder="Full Name" required>
+    </div>
+    <div class="input-group">
+      <i class="fa fa-envelope"></i>
+      <input type="email" id="email" placeholder="Email Address" required>
+    </div>
+    <div class="input-group">
+      <i class="fa fa-lock"></i>
+      <input type="password" id="password" placeholder="Password" required minlength="8">
+      <i class="fas fa-eye-slash password-toggle" onclick="togglePassword()"></i>
+    </div>
+
+    <button type="submit">Create Account</button>
+    <div class="divider">or continue with</div>
+    <div class="social-row">
+      <img src="./image/google-logo-white-background-vector-format-available-google-logo-124289805.webp" alt="Google">
+      <img src="./image/download.png" alt="Apple">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+    </div>
+  </form>
+
+  <div class="login-link">
+    Already have an account? <a href="#">Log in</a>
+  </div>
+</div>
+
+<script>
+function togglePassword() {
+  const field = document.getElementById('password');
+  const icon = document.querySelector('.password-toggle');
+  if(field.type === 'password') {
+    field.type = 'text';
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  } else {
+    field.type = 'password';
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  }
+}
+</script>
+</body>
+</html>

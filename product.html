@@ -10,10 +10,12 @@
 <body>
     <style>
     .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
 }
 
 .featured-contain {
@@ -27,18 +29,23 @@
 }
 
 .featured-image10 {
-    height: 150px; /* Adjust height as needed */
-    background-color: #f4f4f4; /* Fallback color */
-    background-size: cover;
+    width: 100%;
+    height: 350px;
+    background-color: #f4f4f4;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
 }
 
-.featured-image10, .featured-image2 {
-    height: 70vh;
-    background-size: cover;
-    background-position: center;
+.featured-image2 {
+    width: 100%;
+    height: 200px;
     background-color: #f4f4f4;
-    margin-bottom: 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
 }
 
 .featured-text h4 {
